@@ -1,6 +1,6 @@
 # TheCompiler
 
-Wonderful M1 project written with 2 classmates, that consists in a compiler for an abstract pile machine.
+M1 project written with 2 classmates that consists in a compiler for an abstract pile machine.
 
 
 ## Usage
