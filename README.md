@@ -1,59 +1,48 @@
 # TheCompiler
 
-Wonderful M1 project that consists in writing a compilator for an abstract pile machina.
+Wonderful M1 project written with 2 classmates, that consists in a compiler for an abstract pile machine.
 
 
-## Utilisation
+## Usage
 
-Commandes à exécuter depuis la racine de ce dossier :
+Commands to execute in root folder...
 
-### Pour pouvoir se servir de la machine abstraite fournie :
+### To be able to use the abtsract pile machine:
 
+```
 cd AbstractMachina
 make
 cd ..
+```
+### To be able to use the compiler:
 
-### Pour pouvoir se servir du compilateur :
-
+```
 cd Compiler
 make
 cd ..
+```
 
-### Pour compiler des fichiers :
+### To compile files:
 
-Compiler/compiler <chemin-fichier-à-compiler>
-Exemple : Compiler/compiler CodeExamples/big_example.txt
+```
+Compiler/compiler <file-to-compile-path>
+```
+e.g.
+```
+Compiler/compiler CodeExamples/big_example.txt
+```
 
-### Pour exécuter le fichier compilé :
+### To execute the compiled file:
 
-AbstractMachina/interp Compiler/compiled
+```
+AbstractMachina/interp ./compiled
+```
 
 
 
+## Implementation details
 
-## Done in Lexing and Parsing
-
-- [x] Revoir définition des chaines qui est trop laxiste. Elle autorise par exemple "abc\\\\"" qui devrait être refusée ainsi que "abc def" (pas de retour-charriot dans une chaine). Avoir la forme correcte peut demander de filtrer plus proprement ce qui est contenu dans une chaine, comme pour les commentaires. Cependant, à la différence des commentaires, on doit renvoyer la chaine reconnue en résultat, ce qui oblige à la construire caractère par caractère à l'aide d'un Buffer (module disponible Ocaml). Vous trouverez comment faire en regardant la partie Lexing  du document suivant https://dev.realworldocaml.org/parsing-with-ocamllex-and-menhir.html. Il y a un exemple de traitement des chaines qui ressemble.
-
-- [x] Ne plus distinguer UPLUS et UMINUS qui ne servent qu'à donner la même priorité à des règles.
-
-- [x] Faut-il mettre DOT au même niveau ?
-
-- [x] Dans la grammaire, l'usage de separated_pair obscurcit certaines règles (dont celles sur les opérateurs) plus qu'il ne les simplifie. Un usage "raisonnable" (à mon goût) de separated_pair correspond plutôt à ID : IDCLASS puisque le ':' joue juste le rôle d'un symbole de ponctuation. Ce n'est pas le cas d'un opérateur.
-
-- [x] Ne pas différencier expr et exprOperator.
-
-- [x] Voir si on peut empêcher les VAR. Vous autorisez syntaxiquement des VAR devant les paramètres des méthodes alors que ce n'est justifié que pour les paramètres du constructeur. Ce n'est pas faux, mais ça fera une verif contextuelle à faire en plus.
-
-- [x] Dans un return l'expression est optionnelle.
-
-- [x] Dans l'ast vous distinguez inutilement des constructions similaires. Ce n'est pas faux mais ça va vous obliger à dupliquer du code pour rien dans la suite. Par exemple pour les blocs, il y a une forme de déclaration qui est un cas particulier de l'autre. Dans l'ast on ne devrait garder que la forme la plus générale, l'autre s'y ramenant.
-
-- [x] De même pour les 3 formes de déclarations de méthodes. La structure dans l'ast devrait être adaptée à la plus générale et les cas particuliers devraient s'y ramener (assez facilement). Fait-on aussi entrer le constructeur dans la meme forme d'ast que les méthodes (même si la syntaxe différe) quitte à le stocker dans un champ différent de votre ast ? Ca se discute. Ca pourrait simplifier les VC et la génération de code.
-
-- [x] Idem pour la différence entre classe et objet.
-
-## Done in Contextual Verifications
+### Done in Contextual Verifications
 
 - [x] Check duplicate names of classes and objects.
 - [x] Define existant classes (they can not be redefined or have heirs):
@@ -93,7 +82,7 @@ AbstractMachina/interp Compiler/compiled
 - [x] Optimize how return are verified, for now it needs two times to add and remove decls in env.
 - [x] Change print.ml methods so they do not print directly but build a string (so we can use it in verifs to add expr in error message).
 
-## Done in Compiler
+### Done in Compiler
 
 - [x] Compute needed space to store all classes, attributes and variables.
 - [x] Resolve class that has an attribute containing itself problem.
