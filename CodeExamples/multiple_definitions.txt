@@ -1,0 +1,51 @@
+class C1(var y:String) is {
+  var z : Integer;
+  def C1(var y:String) is {}
+  def test() : Integer := this.z
+}
+
+class C2(s : String) extends C1 is {
+  def C2(s : String) : C1("ok") is {}
+  def override test() : Integer := 2
+}
+
+class C3(x:String, y:Integer) extends C2 is {
+  var y : Integer := 3 * 43;
+  def C3(x:String, y:Integer) : C2(x) is {
+    eaoifgeaioi : String;
+    is
+    eaoifgeaioi := "3";
+  }
+  def test2(l:Integer) : String is {
+    m : String;
+    is
+    result := "3";
+    return m;
+  }
+}
+
+object O is {
+  var y: Integer := 0;
+  def incr() : Integer is {
+    this.y := this.y + 1;
+    return this.y;
+  }
+  def howMany() : Integer := this.y
+  def test() : Integer := 0
+}
+
+{
+  x : C3;
+  z : C2;
+  y : C1;
+  a : String;
+  is
+  x := new C3("1", 2);
+  z := new C2("2");
+  y := (as C1 : x);
+  x.test2(3);
+  y.test();
+  z.test();
+  O.test();
+  a := "3";
+}

@@ -1,0 +1,12 @@
+class A() is {
+  def A() is {}
+  def f() : Integer is {
+    result := 4;
+  }
+}
+
+{
+  a: A;
+  is
+  a.f().toString().println();
+}

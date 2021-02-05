@@ -1,0 +1,13 @@
+class A() is {
+   var v : Integer;
+   def f() is { "A::f()\"n".print(); }
+   def h(x: Integer, y : Integer) : Integer := x + y
+   def A() is { this.v := 1; }
+}
+{
+   a: A := new A();
+ is
+    a.f();
+    a.h(1, 2).toString().println();
+    /*a.f().toString().println();*/
+}

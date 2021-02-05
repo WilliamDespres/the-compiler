@@ -1,0 +1,22 @@
+# Ignore what has been built to keep essential items
+
+/AbstractMachina/*.o
+/AbstractMachina/gram.c
+/AbstractMachina/gram.h
+/AbstractMachina/interp
+/AbstractMachina/lex.c
+
+/Compiler/parse.ml
+/Compiler/parse.mli
+/Compiler/lex.ml
+/Compiler/compiler
+/Compiler/compiled
+
+*.cmi
+*.cmo
+*.automaton
+*.conflicts
+*.vscode
+
+# MacOS file system
+*.DS_Store

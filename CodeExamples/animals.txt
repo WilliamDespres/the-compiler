@@ -1,0 +1,81 @@
+class Animal(var size : Integer, var nbPattes : Integer, var nbAiles : Integer, var name : String) is {
+  def Animal(var size : Integer,var nbPattes : Integer, var nbAiles : Integer, var name : String) is {}
+  def bruit(intensite : Integer, type : String) is {
+    affichage : String;
+    is
+    affichage := this.name & " dit " & type & " d'intensité " & intensite.toString();
+    affichage.println();
+  }
+  def retourPattes(a : Integer) is { this.nbPattes; }
+  def showSize() is { "none".println(); }
+}
+
+class Chat(name : String) extends Animal is {
+  def Chat(name : String) : Animal(15, 4, 0, name) is {}
+  def miauler(intensite : Integer) is { 
+    super.bruit(intensite, "miaou"); 
+    this.showSize();
+    super.showSize();
+  }
+  def override showSize() is { "wide".println(); }
+}
+
+class Araignee(dangereuse : String) extends Animal is {
+  var dangereuse : String;
+  var name : String;
+
+  def Araignee(dangereuse : String) : Animal(2, 8, 0, "Araignee") is {
+    this.dangereuse := dangereuse;
+    this.name := "Patricia";
+  }
+
+  def name() is {
+    this.name.println();
+    super.name.println();
+  }
+
+  def override retourPattes(b : Integer) is { super.nbPattes; }
+  def hurlement_araignee() is { this.hurlement_araignee(); }
+}
+
+object Table is {
+  var height : Integer := 25;
+
+  def increaseHeight() is { this.height := this.height + 1; }
+}
+
+{
+  an1 : Animal;
+  c1 : Chat := new Chat("Bob");
+  c2 : Chat := new Chat("Cyril");
+  ar1 : Araignee;
+  is
+  an1 := new Animal(0, 0, 0, "Animal1");
+  ar1 := new Araignee("BrigitteMacron");
+  c1.miauler(2);
+  {
+    x : Chat := new Chat("Chat2");
+    y : Integer := 3;
+    is
+    ar1.name();
+    x.miauler(3);
+    (new Chat("Chat3")).miauler(5);
+    (as Animal : c2).showSize();
+    c2.showSize();
+  }
+}
+
+/*
+VT_Chat 4
+a 7
+y 11
+VT_Table 5
+VT_Integer 3
+s 9
+VT_Animal 1
+VT_Araignee 0
+x 10
+VT_String 2
+c 8
+Table 6
+*/

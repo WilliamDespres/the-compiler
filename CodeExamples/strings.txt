@@ -1,0 +1,15 @@
+class Animal() is {
+  def Animal() is {}
+  
+  def bruit() is {
+    affichage : String := " d intensite " ;
+    is
+    affichage.println();
+  }
+}
+
+{
+  a : Animal := new Animal();
+  is
+  a.bruit();
+}

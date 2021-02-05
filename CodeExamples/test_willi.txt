@@ -1,0 +1,9 @@
+{
+    a: Integer := 3;
+    b: Integer := 2;
+    c: Integer := 6;
+    res: Integer;
+    is
+    if a<b then res := c*2; else res := c/2;
+    res.toString().println(); 
+}
