@@ -1,6 +1,6 @@
 # TheCompiler
 
-M1 project - a compiler for an object-oriented language, for an abstract pile machine.
+Engineering school project - a compiler for an object-oriented language, for an abstract pile machine.
 
 
 ## Usage
